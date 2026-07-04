@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: high-cost-app
+  namespace: finops-demo
+  labels:
+    app: high-cost-app
+    cost-profile: high
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: high-cost-app
+  template:
+    metadata:
+      labels:
+        app: high-cost-app
+        cost-profile: high
+    spec:
+      containers:
+        - name: high-cost-app
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "512Mi"
+            limits:
+              cpu: "1000m"
+              memory: "1Gi"
