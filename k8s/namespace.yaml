@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: finops-demo
+  labels:
+    name: finops-demo
+    project: cloud-cost-optimization

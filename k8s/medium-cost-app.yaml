@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: medium-cost-app
+  namespace: finops-demo
+  labels:
+    app: medium-cost-app
+    cost-profile: medium
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: medium-cost-app
+  template:
+    metadata:
+      labels:
+        app: medium-cost-app
+        cost-profile: medium
+    spec:
+      containers:
+        - name: medium-cost-app
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "200m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"

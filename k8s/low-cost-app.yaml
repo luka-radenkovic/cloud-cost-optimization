@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: low-cost-app
+  namespace: finops-demo
+  labels:
+    app: low-cost-app
+    cost-profile: low
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: low-cost-app
+  template:
+    metadata:
+      labels:
+        app: low-cost-app
+        cost-profile: low
+    spec:
+      containers:
+        - name: low-cost-app
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+            limits:
+              cpu: "100m"
+              memory: "128Mi"
