@@ -19,13 +19,13 @@ variable "ami_id" {
 variable "app_instance_type" {
   description = "Tip EC2 instance za aplikacioni server."
   type        = string
-  default     = "t4g.small"
+  default     = "t4g.medium"
 }
 
 variable "worker_instance_type" {
   description = "Tip EC2 instance za worker server."
   type        = string
-  default     = "t4g.medium"
+  default     = "t4g.large"
 }
 
 variable "environment" {
