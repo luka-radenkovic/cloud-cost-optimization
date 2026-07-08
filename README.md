@@ -1,6 +1,6 @@
 ## Preduslovi
 
-Potrebno je da budu instalirani:
+Potrebno je instalirati:
 
 ```bash
 git --version
